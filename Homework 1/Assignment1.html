@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script>
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+
+        var yyyy = today.getFullYear();
+
+        today = mm + '-' + dd + '-' + yyyy;
+        document.write(today + ', ');
+        today = mm + '/' + dd + '/' + yyyy;
+        document.write(today + ' or ');
+        today = dd + '/' + mm + '/' + yyyy;
+        document.write(', ' + today);
+    </script>
+</head>
+</html>

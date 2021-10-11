@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script>
+        function moveToBack() {
+            input=document.my_form.input.value;
+            newstr=input.charAt(input.length-1)+input.substring(0, input.length - 1);;
+            document.getElementById("input").value = newstr;
+        }
+    </script>
+</head> 
+
+<body>
+    <form id="my_form" name="my_form">
+        <input id="input" name="input" class="inp_text" type="text" size="50">
+        <input type="button" class="button" value="MOVE" onClick=moveToBack()>
+    </form>
+
+</body>
+</html>

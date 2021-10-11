@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+        function guess() {
+            a = document.frm.input.value;
+            a = (parseInt)(a);
+                if (Number.isInteger(a) == false || a < 1 || a > 10) {
+                    alert("Please enter a number between 1 and 10 :)");
+                } else {
+                    rand = getRandomInt(10)+1;
+                    if (a == rand) {
+                        document.write("Good Work");
+                    }
+                    else {
+                        document.write("Not matched");
+                    }
+                }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="frm" action="">
+        Enter a number between 1 and 10
+        <input id="input" name="input" class="inp_text" type="text" size="50">
+        <input type="button" value="Submit" onclick="guess()" />
+    </form>
+</body>
+
+</html>

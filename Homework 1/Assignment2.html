@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script>
+        function calculate() {
+            side1=parseInt(document.my_form.side_1.value);;
+            side2=parseInt(document.my_form.side_2.value);
+            side3=parseInt(document.my_form.side_3.value);
+            p=parseFloat((side1+side2+side3)/2);
+            area=Math.sqrt(p*(p-side1)*(p-side2)*(p-side3));
+            document.write(area+'cm²');
+        }
+    </script>
+</head>
+
+<body>
+    <form id="my_form" name="my_form">
+        <input id="side_1" name="side_1" class="inp_text" type="text" size="50">
+        <input id="side_2" name="side_2" class="inp_text" type="text" size="50">
+        <input id="side_3" name="side_3" class="inp_text" type="text" size="50">
+        <input type="submit" class="button" value="CALCULATE" onClick="calculate()">
+    </form>
+
+</body>
+</html>
