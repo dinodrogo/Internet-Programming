@@ -3,19 +3,31 @@
 
 <head>
     <script>
-        function moveToBack() {
-            input=document.my_form.input.value;
-            newstr=input.charAt(input.length-1)+input.substring(0, input.length - 1);;
-            document.getElementById("input").value = newstr;
+        // function moveToBack() {
+        //     input = document.my_form.input.value;
+        //     newstr = input.charAt(input.length - 1) + input.substring(0, input.length - 1);
+        //     document.getElementById("input").value = newstr;
+        // }
+        function moveInterval() {
+            intervalId = setInterval(function () {
+                input = document.my_form.input.value;
+                newstr = input.charAt(input.length - 1) + input.substring(0, input.length - 1);
+                document.getElementById("input").value = newstr;
+            }, 30);
+        }
+        function stopInterval() {
+            clearInterval(intervalId);
         }
     </script>
-</head> 
+</head>
 
 <body>
     <form id="my_form" name="my_form">
         <input id="input" name="input" class="inp_text" type="text" size="50">
-        <input type="button" class="button" value="MOVE" onClick=moveToBack()>
+        <input type="button" class="button" value="MOVE" onClick=moveInterval()>
+        <input type="button" class="button" value="STOP" onClick=stopInterval()>
     </form>
 
 </body>
+
 </html>
