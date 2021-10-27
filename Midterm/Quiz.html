@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="./myscripts.js"></script>
+<body>
+    <ul class="top">
+    <li.top ><a class="active" href="#home">
+        <IMG SRC="header.jpg" style="width: 100%; height: 120px">
+      </a></li>
+    </ul>
+    <ul class="side">
+        <li class="side"><a href="exams.html">Home</a></li>
+        <li class="side"><a class="active" href="quiz.html">Quiz</a></li>
+        <li class="side"><a href="Contact.html">Contact</a></li>
+    </ul>
+    <div id="quiz" style="padding-left:26%">
+        <p>Q1: Your Name and ID </p>
+        <input id="input1" name="input1" class="inp_text" type="text" size="20">
+        <p>Q2: Inside which HTML element do we put the JavaScript (choose one)</p>
+        <input id="ans11" name="ans1" type="radio"> &ltscripting&gt
+        <input id="ans12" name="ans1" type="radio"> &ltjs&gt 
+        <input id="ans13" name="ans1" type="radio"> &ltjavascript&gt 
+        <input id="ans14" name="ans1" type="radio"> &ltscript&gt
+        <p>Q3: The external JavaScript file must contain the &ltscript&gt tag (check all that apply)</p>
+        <input id="ans21" name="ans21" type="radio"> True
+        <input id="ans22" name="ans22" type="radio"> False 
+        <input id="ans23" name="ans23" type="radio"> None
+        <input id="ans24" name="ans24" type="radio"> Both 
+        <p>Q4: How do you write "Hello World" in an alert box? (Select option)</p>
+        <input id="ans31" name="ans3" type="radio"> Alert("Hello World"); 
+        <input id="ans32" name="ans3" type="radio"> alertBox("Hello World");
+        <input id="ans33" name="ans3" type="radio"> msg("Hello World");
+        <input id="ans34" name="ans3" type="radio"> msgBoxl("Hello World");
+    </div>
+    <input type="button" class="button" value="Submit" onClick="submit()" style="margin-left: 26%">
+    <div id="results" style="margin-left: 26%;"></div>
+</body>
+</html>
