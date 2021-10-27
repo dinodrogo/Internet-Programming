@@ -26,17 +26,17 @@ function submit() {
 
 
 function archive() {
-    mileage = document.getElementById("input1").value;
-    avgfuel = document.getElementById("input2").value;
-    fuelprice = document.getElementById("input3").value;
-    cost = document.getElementById("input4").value;
-    passenger = document.getElementById("input5").value;
+    surname = document.getElementById("input1").value;
+    name = document.getElementById("input2").value;
+    email = document.getElementById("input3").value;
+    id = document.getElementById("input4").value;
+    note = document.getElementById("input5").value;
     let object={
-        mileage,
-        avgfuel,
-        fuelprice,
-        cost,
-        passenger
+        surname,
+        name,
+        email,
+        id,
+        note
     };
     localStorage.setItem("Info", JSON.stringify(object));
 }
