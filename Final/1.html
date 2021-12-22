@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <script type="text/javascript">
+        function FahrenheitToCelsius(){
+            Fahrenheit=document.getElementById("valFromA").value
+            if (window.XMLHttpRequest){
+                xmlhttp=new XMLHttpRequest();
+            }else {
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function(){
+                if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                    document.getElementById("resulta").innerHTML=xmlhttp.responseText;
+                }	
+            }
+	        xmlhttp.open("POST","https://ip-uacs.herokuapp.com/api/Convert/ToCelsius/"+Fahrenheit,true);
+            xmlhttp.send();
+        }
+        function CelsiusToFahrenheit(){
+            Celsius=document.getElementById("valFromB").value
+            if (window.XMLHttpRequest){
+                xmlhttp=new XMLHttpRequest();
+            }else {
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function(){
+                if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                    document.getElementById("resultb").innerHTML=xmlhttp.responseText;
+                }	
+            }
+	        xmlhttp.open("POST","https://ip-uacs.herokuapp.com/api/Convert/ToFahrenheit/"+Celsius,true);
+            xmlhttp.send();
+        }
+        </script>
+</head>
+<body align=center>
+        Fahrenheit here <input type="Text" name="valFromA" id="valFromA"> 
+        <div id="resulta" >&nbsp;</div>
+        <button type="button" onclick="FahrenheitToCelsius()">Calcucate</button>
+        <br>
+        Celsius here <input type="Text" name="valFromB" id="valFromB"> 
+        <div id="resultb" >&nbsp;</div>
+        <button type="button" onclick="CelsiusToFahrenheit()">Calcucate</button>
+
+</body>
+</html>

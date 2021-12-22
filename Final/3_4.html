@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<script type="text/javascript">
+    function search() {
+        str = document.getElementById("studentSearch").value
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                let result = JSON.parse(xmlhttp.response);
+                if(document.getElementById("studentSearch").value != ""){
+                    result=result.filter(function(studentsjson){
+                        return (studentsjson.studentId == document.getElementById("studentSearch").value);
+                    })
+                    console.log(result);
+                }
+
+                    document.getElementById("listResults").innerHTML = result.map(item => `<li>${item.studentId} ${item.firstName} ${item.lastName} ${item.createdDate}</li>`);
+            }
+        }
+        xmlhttp.open("GET", "https://ip-uacs.herokuapp.com/api/student/", true);
+        xmlhttp.send();
+    }
+</script>
+
+<body>
+    <div>
+        <form id="callDB" class="col md-12">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-header">Enter the student's ID, enter nothing to display all.</div>
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="studentSearch" id="studentSearch"
+                                    aria-describedby="studentHelp" placeholder="Enter student"
+                                    aria-label="Enter student" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="search()"
+                                        id="btnSearch">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="card">
+                        <div class="card-header">
+                            Results display here
+                        </div>
+                        <ul id="listResults">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

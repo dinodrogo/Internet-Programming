@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            function archive() {
+                    firstName = document.getElementById("firstName").value;
+                    lastName = document.getElementById("lastName").value;
+                    studentId = document.getElementById("StudentID").value;
+                    email = document.getElementById("email").value;
+                    let object={
+                        firstName,
+                        lastName,
+                        studentId,
+                        email
+                    };
+                    // localStorage.setItem("Info", JSON.stringify(object));
+                    var url = "https://ip-uacs.herokuapp.com/api/student";
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", url);
+
+                    xhr.setRequestHeader("Accept", "application/json");
+                    xhr.setRequestHeader("Content-Type", "application/json");
+
+                    xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        console.log(xhr.status);
+                        console.log(xhr.responseText);
+                    }};
+
+                    xhr.send(JSON.stringify(object));
+
+                }
+                
+        </script>
+    </head>
+<body>
+        <input id="firstName" name="firstName" class="inp_text" type="text" size="50"> firstName<br>
+        <input id="lastName" name="lastName" class="inp_text" type="text" size="50"> lastName<br>
+        <input id="StudentID" name="StudentID" class="inp_text" type="text" size="50"> StudentID<br>
+        <input id="email" name="email" class="inp_text" type="text" size="50"> E-Mail<br>
+        <input type="button" class="button" value="Save" onClick="archive()">
+</body>
+</html>
